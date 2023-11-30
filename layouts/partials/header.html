@@ -1,10 +1,27 @@
-<header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+<header class="flex h-[4.5rem] w-100 px-8 lg:justify-center ">
   <div class="relative z-50 mr-auto flex items-center">
-    <a
-      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="{{ `` | absURL }}"
-      >{{ site.Title }}</a
-    >
+    <div class="flex flex-row gap-6">
+      {{ $logo_path_light := resources.Get .Site.Params.logo_path_light }}
+      {{ $logo_path_dark := resources.Get .Site.Params.logo_path_dark }}
+        <a 
+          href="{{ `` | absURL }}"
+        >
+          <img
+            class="h-8 mr-6 logo_light"
+          src="{{ $logo_path_light.Permalink }}"
+          />
+          <img
+            class="h-8 mr-6 logo_dark"
+            src="{{ $logo_path_dark.Permalink }}"
+          />
+        </a>
+        <a
+          class="-translate-x-[1px] -translate-y-[1px]  font-semibold ml-7"
+          style="position: relative; top: 10px;"
+          href="{{ `` | absURL }}"
+          >{{ site.Title }}</a
+        >
+    </div>
     <div
       class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer {{ if site.Params.monoDarkIcon }}[background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert{{ else }}[background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)]{{ end }} dark:[background-position:right]"
       role="button"
@@ -19,6 +36,25 @@
   ></div>
 
   {{ $bg_color := $.Scratch.Get "bg_color" }}<!---->
+
+
+  <style>
+  .logo_light {
+    display: block; /* or inline, inline-block, etc., depending on your layout */
+  }
+
+  .logo_dark {
+    display: none;
+  }
+
+  .dark .logo_light {
+    display: none;
+  }
+
+  .dark .logo_dark {
+    display: block; /* or inline, inline-block, etc., depending on your layout */
+  }
+  </style>
 
   <script>
     // base
