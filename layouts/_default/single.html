@@ -21,6 +21,52 @@
 
   <section>{{ .Content }}</section>
 
+
+  <div class="card">
+    <h1>Fiscalistes, <br/>
+      ne manquez pas la révolution !
+    <p> Wisetax réinvente la pratique de fiscalité en mettant <strong>l'intelligence artificielle</strong> au service de vos compétences. </p>
+    <a href="https://www.wisetax.fr/contact">Contactez nous </a>
+  </div>
+
+  <style>
+    .card {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #102A43;
+      color: white;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .card h1 {
+      margin-top: 0;
+      font-size: 24px;
+      line-height: 2em;
+      color: white;
+    }
+    .card p {
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .card a {
+      background-color: white;
+      color: #102A43;
+      line-height: 1em;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+
   <!-- Post Tags -->
   {{ if .Params.tags }}
   <footer class="mt-12 flex flex-wrap">
